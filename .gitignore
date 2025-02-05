@@ -70,3 +70,21 @@ yarn-error.log
 
 
 /.vscode
+
+# Next.js build and cache files
+.next/
+.vercel/
+out/
+.turbo/
+.cache/
+
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env*
