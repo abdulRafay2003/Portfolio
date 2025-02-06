@@ -2,27 +2,58 @@
 
 import { Card } from "@/components/ui/card";
 import { ArrowLeft } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Projects() {
   const projects = [
     {
-      title: "Revo",
-      description: "Free Framer Template",
-      image:
-        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&h=300&q=80",
+      title: "Chefnero",
+      image: require("../../lib/projectAssets/Chefnero/display.png"),
     },
     {
-      title: "NajmAI",
-      description: "Saas Framer Template",
-      image:
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&h=300&q=80",
+      title: "Event Buddy",
+      image: require("../../lib/projectAssets/EventBuddy/display.png"),
     },
     {
-      title: "Nashra",
-      description: "Saas Framer Template",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&q=80",
+      title: "Fluospeak",
+      image: require("../../lib/projectAssets/Fluospeak/display.png"),
+    },
+    {
+      title: "Geelink",
+      image: require("../../lib/projectAssets/Geelink/ss-1.png"),
+    },
+    {
+      title: "Group Homes",
+      image: require("../../lib/projectAssets/GroupHomes/mockup.png"),
+    },
+    {
+      title: "Muslim Me",
+      image: require("../../lib/projectAssets/MuslimMe/mockup.png"),
+    },
+    {
+      title: "Phonesheet",
+      image: require("../../lib/projectAssets/Phonesheet/mockup.png"),
+    },
+    {
+      title: "Pidj",
+      image: require("../../lib/projectAssets/Pidj/display.png"),
+    },
+    {
+      title: "Prox Equine",
+      image: require("../../lib/projectAssets/ProxEquine/ss-3.jpg"),
+    },
+    {
+      title: "Prox Vet",
+      image: require("../../lib/projectAssets/ProxVet/ss-1.png"),
+    },
+    {
+      title: "ShowOff",
+      image: require("../../lib/projectAssets/ShowOff/display.png"),
+    },
+    {
+      title: "Tapped-N",
+      image: require("../../lib/projectAssets/Tapped-N/ss-1.jpg"),
     },
   ];
 
@@ -50,6 +81,39 @@ export default function Projects() {
             </p>
           </div>
         </Card>
+
+        <section className="mb-20">
+          <h2 className="text-[70px] font-bold leading-none mb-9 mt-10">
+            SUCCESSFUL PROJECTS
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-[70px]">
+            {projects.map((project, index) => (
+              <Link
+                href="/details"
+                className="text-gray-400 hover:text-white transition-colors inline-flex items-center"
+              >
+                <Card
+                  key={index}
+                  className="bg-zinc-900 overflow-hidden group cursor-pointer w-full h-50"
+                >
+                  <div className="relative h-48">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                  </div>
+                  <div className="p-4 text-center">
+                    <h3 className="text-[22px] font-semibold">
+                      {project.title}
+                    </h3>
+                  </div>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );

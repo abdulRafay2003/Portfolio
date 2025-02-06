@@ -41,8 +41,11 @@ export default function About() {
 
             <h2 className="text-3xl font-bold mb-4">Technical Expertise</h2>
             <ul className="text-gray-400 text-lg space-y-2 mb-6">
-              <li>• Frontend Development (React, Next.js, Vue.js)</li>
-              <li>• Backend Development (Node.js, Python)</li>
+              <li>
+                • Frontend Development (React.js, Next.js, Vue.js, React Native,
+                Flutter)
+              </li>
+              <li>• Backend Development (Node.js, Python, Php)</li>
               <li>• Database Design (SQL, NoSQL)</li>
               <li>• Cloud Services (AWS, Azure)</li>
               <li>• DevOps & CI/CD</li>

@@ -17,6 +17,7 @@ import {
 import StackIcon from "tech-stack-icons";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { Linkedin } from "lucide-react";
 
 export default function Home() {
   const router = useRouter();
@@ -30,44 +31,38 @@ export default function Home() {
     {
       title: "Chefnero",
       description: "Free Framer Template",
-      image:
-        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&h=300&q=80",
+      image: require("../lib/projectAssets/Chefnero/display.png"),
     },
     {
       title: "Pidj",
       description: "Saas Framer Template",
-      image:
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&h=300&q=80",
+      image: require("../lib/projectAssets/Pidj/display.png"),
     },
     {
-      title: "Geelink",
+      title: "Event Buddy",
       description: "Saas Framer Template",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&q=80",
+      image: require("../lib/projectAssets/EventBuddy/display.png"),
     },
     {
       title: "Phonesheet",
       description: "Free Framer Template",
-      image:
-        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&h=300&q=80",
+      image: require("../lib/projectAssets/Phonesheet/mockup.png"),
     },
     {
       title: "ShowOff",
       description: "Saas Framer Template",
-      image:
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&h=300&q=80",
+      image: require("../lib/projectAssets/ShowOff/display.png"),
     },
     {
-      title: "Mobilez Market",
+      title: "Group Homes",
       description: "Saas Framer Template",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&q=80",
+      image: require("../lib/projectAssets/GroupHomes/display.png"),
     },
   ];
 
   const experiences = [
     {
-      company: "Wizzard Inoovations US",
+      company: "Wizard Innovations US",
       period: "Sept 2023 - Present",
       description:
         "Led the development team in creating user-centric mobile and web applications, improving the user experience and increasing user engagement.",
@@ -80,7 +75,7 @@ export default function Home() {
     },
     {
       company: "Tech Verticks",
-      period: "May 20121 - Sept 2023",
+      period: "May 2021 - Sept 2023",
       description:
         "Designed user interfaces for e-commerce and different service providing platforms, focusing on enhancing usability and visual appeal.",
     },
@@ -113,10 +108,10 @@ export default function Home() {
   ];
 
   const navOptions = [
-    {
-      title: "Home",
-      navigateTo: "/",
-    },
+    // {
+    //   title: "Home",
+    //   navigateTo: "/",
+    // },
     {
       title: "Projects",
       navigateTo: "/projects",
@@ -124,6 +119,17 @@ export default function Home() {
     {
       title: "About",
       navigateTo: "/about",
+    },
+  ];
+
+  const socialIcons = [
+    {
+      title: "LinkedIn",
+      icon: require("../lib/icons/linkedin.webp"),
+    },
+    {
+      title: "Github",
+      icon: require("../lib/icons/github.webp"),
     },
   ];
 
@@ -137,7 +143,7 @@ export default function Home() {
               return (
                 <Link
                   href={item?.navigateTo}
-                  className="text-gray-400 text-[16px] hover:text-white transition-colors inline-flex items-center mx-1 my-1 px-3"
+                  className="text-gray-400 text-[14px] hover:text-white transition-colors inline-flex items-center mx-1 my-1 px-3"
                 >
                   {item?.title}
                 </Link>
@@ -150,7 +156,7 @@ export default function Home() {
         <div className="flex flex-col md:flex-row gap-24 mb-10 relative">
           {/* Profile Card - Now Sticky */}
           <div className="md:sticky md:top-8 md:h-fit">
-            <Card className=" p-7 flex-1 w-[500px] md:max-w-xs bg-white items-center justify-center text-center">
+            <Card className="rounded-3xl p-5 flex-1 w-[500px] md:max-w-xs bg-white items-center justify-center text-center">
               <div className="relative w-full aspect-square mb-4 rounded-lg overflow-hidden">
                 <Image
                   src={require("../lib/profile.png")}
@@ -163,40 +169,38 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-black mb-2">
                 Abdul Rafay
               </h2>
-              <p className="text-sm text-gray-400 mb-4 mt-5">
+              <p className="text-sm text-gray-600 mb-4 mt-5">
                 A Software Engineer who has developed countless innovative
                 solutions.
               </p>
               <h2 className="text-1xl font-bold mb-2 text-black">
                 Personal Info
               </h2>
-              <ul className="text-gray-400 text-sm space-y-2 mb-6">
+              <ul className="text-gray-600 text-sm space-y-2 mb-6">
                 <li>Contact : +923362766006</li>
                 <li>Email : abdurafay119@gmail.com</li>
               </ul>
-              <div className="flex gap-2 items-center justify-center">
-                {["Twitter", "GitHub", "LinkedIn", "Instagram"].map(
-                  (social) => (
-                    <Button
-                      key={social}
-                      variant="outline"
-                      size="icon"
+              <div className="flex gap-3 items-center justify-center">
+                {socialIcons?.map((social) => (
+                  <Button
+                    key={social.title}
+                    // variant="outline"
+                    size="icon"
+                    className="rounded-full"
+                  >
+                    <Image
+                      src={social?.icon}
+                      alt={social.title}
+                      layout="full"
+                      objectFit="contain"
                       className="rounded-full"
-                    >
-                      <Image
-                        src={require("../lib/profile.png")}
-                        alt="Profile"
-                        layout="full"
-                        objectFit="contain"
-                        className="rounded-lg"
-                      />
-                      <Link
-                        href="https://stackoverflow.com/"
-                        className="h-4 w-4"
-                      />
-                    </Button>
-                  )
-                )}
+                    />
+                    <Link
+                      href="https://stackoverflow.com/"
+                      className="h-4 w-4"
+                    />
+                  </Button>
+                ))}
               </div>
             </Card>
           </div>
@@ -237,7 +241,7 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {projects.map((project, index) => (
                   <Link
-                    href="/projects"
+                    href="/details"
                     className="text-gray-400 hover:text-white transition-colors inline-flex items-center"
                   >
                     <Card
@@ -252,23 +256,29 @@ export default function Home() {
                           objectFit="cover"
                         />
                       </div>
-                      <div className="p-4">
-                        <h3 className="text-xl font-semibold">
+                      <div className="p-4 text-center">
+                        <h3 className="text-[22px] font-semibold">
                           {project.title}
                         </h3>
+                        {/* <p className="text-gray-400 text-[14px]">
+                          {project.description}
+                        </p> */}
                       </div>
                     </Card>
                   </Link>
                 ))}
               </div>
-              <div className="w-full text-center mt-9 py-[8px] rounded-md bg-white">
-                <Link
-                  href="/projects"
-                  className="text-gray-400 hover:text-white transition-colors inline-flex items-center"
+              <Link href="/projects">
+                <Button
+                  onSubmit={() => {
+                    alert("jbjnjn");
+                    router.push("./projects");
+                  }}
+                  className="w-full bg-white  text-black mt-9"
                 >
-                  <h3 className="text-black">View All</h3>
-                </Link>
-              </div>
+                  View All
+                </Button>
+              </Link>
             </section>
 
             {/* Experience */}
