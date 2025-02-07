@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import favicon from "@/app/favicon.ico";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -21,6 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <link rel="icon" href={favicon.src} type="image/x-icon" />
+      </head>
       <body className={poppins.className}>{children}</body>
     </html>
   );

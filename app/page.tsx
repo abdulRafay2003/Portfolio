@@ -124,13 +124,23 @@ export default function Home() {
 
   const socialIcons = [
     {
+      id: "1",
       title: "LinkedIn",
       icon: require("../lib/icons/linkedin.webp"),
+      link: "https://linkedin.com/in/abdul-rafay-27b544233",
     },
     {
+      id: "2",
       title: "Github",
       icon: require("../lib/icons/github.webp"),
+      link: "https://github.com/abdulRafay2003",
     },
+    // {
+    //   id: "3",
+    //   title: "Email",
+    //   icon: require("../lib/icons/github.webp"),
+    //   link: "mailto:abdurafay119@gmail.com?subject=Let's%20Connect&body=Hello%2C%20I%20wanted%20to%20discuss%20something%20with%20you.",
+    // },
   ];
 
   return (
@@ -177,30 +187,46 @@ export default function Home() {
                 Personal Info
               </h2>
               <ul className="text-gray-600 text-sm space-y-2 mb-6">
-                <li>Contact : +923362766006</li>
+                <li>Contact : +923363766006</li>
                 <li>Email : abdurafay119@gmail.com</li>
               </ul>
               <div className="flex gap-3 items-center justify-center">
-                {socialIcons?.map((social) => (
-                  <Button
-                    key={social.title}
-                    // variant="outline"
-                    size="icon"
-                    className="rounded-full"
-                  >
-                    <Image
-                      src={social?.icon}
-                      alt={social.title}
-                      layout="full"
-                      objectFit="contain"
-                      className="rounded-full"
-                    />
-                    <Link
-                      href="https://stackoverflow.com/"
-                      className="h-4 w-4"
-                    />
-                  </Button>
-                ))}
+                {socialIcons?.map((social) =>
+                  social?.id == "3" ? (
+                    <a href="https://mailto:abdurafay119@gmail.com">
+                      <Button
+                        key={social.title}
+                        size="icon"
+                        className="rounded-full"
+                      >
+                        <Image
+                          src={social?.icon}
+                          alt={social.title}
+                          layout="full"
+                          objectFit="contain"
+                          className="rounded-full"
+                        />
+                      </Button>
+                    </a>
+                  ) : (
+                    <Link href={social?.link}>
+                      <Button
+                        key={social.title}
+                        // variant="outline"
+                        size="icon"
+                        className="rounded-full"
+                      >
+                        <Image
+                          src={social?.icon}
+                          alt={social.title}
+                          layout="full"
+                          objectFit="contain"
+                          className="rounded-full"
+                        />
+                      </Button>
+                    </Link>
+                  )
+                )}
               </div>
             </Card>
           </div>
@@ -373,7 +399,7 @@ export default function Home() {
                 <br />
                 <span className="text-zinc-800">TOGETHER</span>
               </h2>
-              <Card className="bg-zinc-900 p-8">
+              {/* <Card className="bg-zinc-900 p-8">
                 <form className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
@@ -413,16 +439,17 @@ export default function Home() {
                       className="bg-zinc-800 border-zinc-700 min-h-[150px]"
                     />
                   </div>
-                  <Button
-                    onSubmit={() => {
-                      alert("jbjnjn");
-                    }}
-                    className="w-full bg-white  text-black"
-                  >
-                    Submit
-                  </Button>
+                  
                 </form>
-              </Card>
+              </Card> */}
+              <Button
+                onClick={() =>
+                  window.open("https://wa.me/923363766006", "_blank")
+                }
+                className="w-full h-12 bg-white text-lg  text-black"
+              >
+                Let's Connect
+              </Button>
             </section>
           </div>
         </div>
