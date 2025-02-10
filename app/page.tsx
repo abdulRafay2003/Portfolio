@@ -3,21 +3,10 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Navigation } from "lucide-react";
 import Image from "next/image";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import StackIcon from "tech-stack-icons";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Linkedin } from "lucide-react";
 
 export default function Home() {
   const router = useRouter();
@@ -29,34 +18,283 @@ export default function Home() {
 
   const projects = [
     {
+      id: "1",
       title: "Chefnero",
-      description: "Free Framer Template",
       image: require("../lib/projectAssets/Chefnero/display.png"),
+      category: "Mobile App Development",
+      client: "Restaurant Chain",
+      date: "2021",
+      technologies: ["Node.js", "React Native", "MongoDB"],
+      shortDescription:
+        "Chefnero the ultimate food discovery app, allows you to discover and savor local chef creation.",
+      description:
+        "Too busy to cook or miss freshly cooked meals? You can find food prepared the way you want by local certified chefs with our app. Browse menu of chefs around you or have a chat with chefs to request custom order You can view Chefs availability to help you plan your order Place order with peace of mind as payment is released only after order is delivered. Not available in your city? We’re working on it.",
+      challenge:
+        "One of the main challenges we faced was creating a seamless user experience that simplifies the process of discovering and ordering food. We worked hard to ensure that the app's interface is user friendly, allowing them to easily navigate through different menus and explore dishes from various chefs. Additionally, we focused on implementing reliable and secure features such as instant chat with chefs to provide users with essential information about the food and maintain a trustworthy environment.",
+      goal: "The goal of Chefnero is to simplify the process of discovering and ordering food from local chefs. By providing a user-friendly platform, we aim to connect food enthusiasts with talented chefs in their neighborhood and enable them to conveniently access and enjoy a wide variety of delicious meals. Our objective is to bring together consumers and local culinary talent, creating a lively community that celebrates diverse flavors and food experiences.",
+      audience:
+        "Chefnero caters to food lovers of all ages who seek convenience and variety in their dining experiences. Whether you're a busy professional, a student, or simply someone who appreciates good food, Chefnero is designed to meet your craving needs. The app is made for everyone, no matter your age or what kind of food you love. It's all about making dining easy and enjoyable for everyone who wants quality and convenience.",
+      videoUrl: "/videos/chefnero.mp4",
+      images: [
+        require("../lib/projectAssets/Chefnero/display-2.webp"),
+        require("../lib/projectAssets/Chefnero/display.png"),
+      ],
     },
     {
+      id: "2",
       title: "Pidj",
-      description: "Saas Framer Template",
       image: require("../lib/projectAssets/Pidj/display.png"),
+      category: "Web Development & Mobile App Development",
+      client: "Communication Company",
+      date: "2023",
+      technologies: ["React.js", "React Native", "Php", "SQL", "Tailwind CSS"],
+      shortDescription:
+        "Boost Your Business and Community Communication with Pidj Mobile.",
+      description:
+        "Efficiently manage your business and community communications with the Pid text messaging app. With 2-way communication and Textcast capabilities, you can easily stay connected with your team, customers, or community in real-time. Never miss a message and streamline your workflow with our user-friendly interface. Download now and take your business to the next level",
+      challenge:
+        "Our main challenge lies in differentiating Pidj Mobile in a saturated mobile communication market, where lots of other communication apps are already available. We need to show off Pidj Mobile's special features, especially its Textcast thing, so people will want to use it. Another big challenge is keeping everything safe and private. We know it's really important to make sure people trust us with their info, especially if they're running businesses and dealing with sensitive stuff. Additionally, encouraging user adoption of Pidj Mobile might need some explanation and showing them how much it can help them save time and work better.",
+      goal: "Our primary objective in developing Pidj is to enhance communication efficiency for businesses and communities. We aim to empower them by providing a user-friendly platform that simplifies communication and improves workflow. With Pidj, users can enjoy the benefits of two-way texting and Textcast capabilities, enabling them to connect efficiently with their teams, customers, or community members in real-time.Pidj Mobile aims to bring all your communication in one place and ensure that no messages are missed. By doing so, it encourages collaboration and increases productivity, which is essential for businesses to achieve their goals. It also helps strengthen relationships, enhance customer satisfaction, and promote active engagement within communities. Its user-friendly features make communication easier and more efficient, allowing businesses to thrive and succeed",
+      audience:
+        "Pidj caters to a broad audience in search of efficient communication solutions. t's great for nonprofit groups, schools, and community organizations who need to send out lots of messages, organize events, or keep members engaged. And it's not just for them businesses of any size, from small startups to big companies, can use Pidj too. It helps teams stay in touch, share news, and work together easily. Even customer service teams can use Pidj to talk to customers and fix problems fast.",
+      videoUrl: "/videos/pidj.mp4",
+      images: [
+        require("../lib/projectAssets/Pidj/display.png"),
+        require("../lib/projectAssets/Pidj/mockup.png"),
+      ],
     },
     {
+      id: "3",
       title: "Event Buddy",
-      description: "Saas Framer Template",
       image: require("../lib/projectAssets/EventBuddy/display.png"),
+      category: "Web Development & Mobile App Development",
+      client: "Communication Company",
+      date: "2023",
+      technologies: ["React.js", "React Native", "Php", "SQL", "Tailwind CSS"],
+      shortDescription:
+        "Boost Your Business and Community Communication with Pidj Mobile.",
+      description:
+        "Efficiently manage your business and community communications with the Pid text messaging app. With 2-way communication and Textcast capabilities, you can easily stay connected with your team, customers, or community in real-time. Never miss a message and streamline your workflow with our user-friendly interface. Download now and take your business to the next level",
+      challenge:
+        "Our main challenge lies in differentiating Pidj Mobile in a saturated mobile communication market, where lots of other communication apps are already available. We need to show off Pidj Mobile's special features, especially its Textcast thing, so people will want to use it. Another big challenge is keeping everything safe and private. We know it's really important to make sure people trust us with their info, especially if they're running businesses and dealing with sensitive stuff. Additionally, encouraging user adoption of Pidj Mobile might need some explanation and showing them how much it can help them save time and work better.",
+      goal: "Our primary objective in developing Pidj is to enhance communication efficiency for businesses and communities. We aim to empower them by providing a user-friendly platform that simplifies communication and improves workflow. With Pidj, users can enjoy the benefits of two-way texting and Textcast capabilities, enabling them to connect efficiently with their teams, customers, or community members in real-time.Pidj Mobile aims to bring all your communication in one place and ensure that no messages are missed. By doing so, it encourages collaboration and increases productivity, which is essential for businesses to achieve their goals. It also helps strengthen relationships, enhance customer satisfaction, and promote active engagement within communities. Its user-friendly features make communication easier and more efficient, allowing businesses to thrive and succeed",
+      audience:
+        "Pidj caters to a broad audience in search of efficient communication solutions. t's great for nonprofit groups, schools, and community organizations who need to send out lots of messages, organize events, or keep members engaged. And it's not just for them businesses of any size, from small startups to big companies, can use Pidj too. It helps teams stay in touch, share news, and work together easily. Even customer service teams can use Pidj to talk to customers and fix problems fast.",
+      videoUrl: "/videos/pidj.mp4",
+      images: [
+        require("../lib/projectAssets/Pidj/display.png"),
+        require("../lib/projectAssets/Pidj/mockup.png"),
+      ],
     },
     {
+      id: "4",
+
       title: "Phonesheet",
-      description: "Free Framer Template",
       image: require("../lib/projectAssets/Phonesheet/mockup.png"),
+      category: "Web Development & Mobile App Development",
+      client: "Communication Company",
+      date: "2023",
+      technologies: ["React.js", "React Native", "Php", "SQL", "Tailwind CSS"],
+      shortDescription:
+        "Boost Your Business and Community Communication with Pidj Mobile.",
+      description:
+        "Efficiently manage your business and community communications with the Pid text messaging app. With 2-way communication and Textcast capabilities, you can easily stay connected with your team, customers, or community in real-time. Never miss a message and streamline your workflow with our user-friendly interface. Download now and take your business to the next level",
+      challenge:
+        "Our main challenge lies in differentiating Pidj Mobile in a saturated mobile communication market, where lots of other communication apps are already available. We need to show off Pidj Mobile's special features, especially its Textcast thing, so people will want to use it. Another big challenge is keeping everything safe and private. We know it's really important to make sure people trust us with their info, especially if they're running businesses and dealing with sensitive stuff. Additionally, encouraging user adoption of Pidj Mobile might need some explanation and showing them how much it can help them save time and work better.",
+      goal: "Our primary objective in developing Pidj is to enhance communication efficiency for businesses and communities. We aim to empower them by providing a user-friendly platform that simplifies communication and improves workflow. With Pidj, users can enjoy the benefits of two-way texting and Textcast capabilities, enabling them to connect efficiently with their teams, customers, or community members in real-time.Pidj Mobile aims to bring all your communication in one place and ensure that no messages are missed. By doing so, it encourages collaboration and increases productivity, which is essential for businesses to achieve their goals. It also helps strengthen relationships, enhance customer satisfaction, and promote active engagement within communities. Its user-friendly features make communication easier and more efficient, allowing businesses to thrive and succeed",
+      audience:
+        "Pidj caters to a broad audience in search of efficient communication solutions. t's great for nonprofit groups, schools, and community organizations who need to send out lots of messages, organize events, or keep members engaged. And it's not just for them businesses of any size, from small startups to big companies, can use Pidj too. It helps teams stay in touch, share news, and work together easily. Even customer service teams can use Pidj to talk to customers and fix problems fast.",
+      videoUrl: "/videos/pidj.mp4",
+      images: [
+        require("../lib/projectAssets/Pidj/display.png"),
+        require("../lib/projectAssets/Pidj/mockup.png"),
+      ],
     },
     {
+      id: "5",
       title: "ShowOff",
-      description: "Saas Framer Template",
       image: require("../lib/projectAssets/ShowOff/display.png"),
+      category: "Web Development & Mobile App Development",
+      client: "Communication Company",
+      date: "2023",
+      technologies: ["React.js", "React Native", "Php", "SQL", "Tailwind CSS"],
+      shortDescription:
+        "Boost Your Business and Community Communication with Pidj Mobile.",
+      description:
+        "Efficiently manage your business and community communications with the Pid text messaging app. With 2-way communication and Textcast capabilities, you can easily stay connected with your team, customers, or community in real-time. Never miss a message and streamline your workflow with our user-friendly interface. Download now and take your business to the next level",
+      challenge:
+        "Our main challenge lies in differentiating Pidj Mobile in a saturated mobile communication market, where lots of other communication apps are already available. We need to show off Pidj Mobile's special features, especially its Textcast thing, so people will want to use it. Another big challenge is keeping everything safe and private. We know it's really important to make sure people trust us with their info, especially if they're running businesses and dealing with sensitive stuff. Additionally, encouraging user adoption of Pidj Mobile might need some explanation and showing them how much it can help them save time and work better.",
+      goal: "Our primary objective in developing Pidj is to enhance communication efficiency for businesses and communities. We aim to empower them by providing a user-friendly platform that simplifies communication and improves workflow. With Pidj, users can enjoy the benefits of two-way texting and Textcast capabilities, enabling them to connect efficiently with their teams, customers, or community members in real-time.Pidj Mobile aims to bring all your communication in one place and ensure that no messages are missed. By doing so, it encourages collaboration and increases productivity, which is essential for businesses to achieve their goals. It also helps strengthen relationships, enhance customer satisfaction, and promote active engagement within communities. Its user-friendly features make communication easier and more efficient, allowing businesses to thrive and succeed",
+      audience:
+        "Pidj caters to a broad audience in search of efficient communication solutions. t's great for nonprofit groups, schools, and community organizations who need to send out lots of messages, organize events, or keep members engaged. And it's not just for them businesses of any size, from small startups to big companies, can use Pidj too. It helps teams stay in touch, share news, and work together easily. Even customer service teams can use Pidj to talk to customers and fix problems fast.",
+      videoUrl: "/videos/pidj.mp4",
+      images: [
+        require("../lib/projectAssets/Pidj/display.png"),
+        require("../lib/projectAssets/Pidj/mockup.png"),
+      ],
     },
     {
+      id: "6",
       title: "Group Homes",
-      description: "Saas Framer Template",
       image: require("../lib/projectAssets/GroupHomes/display.png"),
+      category: "Web Development & Mobile App Development",
+      client: "Communication Company",
+      date: "2023",
+      technologies: ["React.js", "React Native", "Php", "SQL", "Tailwind CSS"],
+      shortDescription:
+        "Boost Your Business and Community Communication with Pidj Mobile.",
+      description:
+        "Efficiently manage your business and community communications with the Pid text messaging app. With 2-way communication and Textcast capabilities, you can easily stay connected with your team, customers, or community in real-time. Never miss a message and streamline your workflow with our user-friendly interface. Download now and take your business to the next level",
+      challenge:
+        "Our main challenge lies in differentiating Pidj Mobile in a saturated mobile communication market, where lots of other communication apps are already available. We need to show off Pidj Mobile's special features, especially its Textcast thing, so people will want to use it. Another big challenge is keeping everything safe and private. We know it's really important to make sure people trust us with their info, especially if they're running businesses and dealing with sensitive stuff. Additionally, encouraging user adoption of Pidj Mobile might need some explanation and showing them how much it can help them save time and work better.",
+      goal: "Our primary objective in developing Pidj is to enhance communication efficiency for businesses and communities. We aim to empower them by providing a user-friendly platform that simplifies communication and improves workflow. With Pidj, users can enjoy the benefits of two-way texting and Textcast capabilities, enabling them to connect efficiently with their teams, customers, or community members in real-time.Pidj Mobile aims to bring all your communication in one place and ensure that no messages are missed. By doing so, it encourages collaboration and increases productivity, which is essential for businesses to achieve their goals. It also helps strengthen relationships, enhance customer satisfaction, and promote active engagement within communities. Its user-friendly features make communication easier and more efficient, allowing businesses to thrive and succeed",
+      audience:
+        "Pidj caters to a broad audience in search of efficient communication solutions. t's great for nonprofit groups, schools, and community organizations who need to send out lots of messages, organize events, or keep members engaged. And it's not just for them businesses of any size, from small startups to big companies, can use Pidj too. It helps teams stay in touch, share news, and work together easily. Even customer service teams can use Pidj to talk to customers and fix problems fast.",
+      videoUrl: "/videos/pidj.mp4",
+      images: [
+        require("../lib/projectAssets/Pidj/display.png"),
+        require("../lib/projectAssets/Pidj/mockup.png"),
+      ],
+    },
+
+    {
+      id: "7",
+      title: "Chefnero",
+      image: require("../lib/projectAssets/Chefnero/display.png"),
+      category: "Mobile App Development",
+      client: "Restaurant Chain",
+      date: "2021",
+      technologies: ["Node.js", "React Native", "MongoDB"],
+      shortDescription:
+        "Chefnero the ultimate food discovery app, allows you to discover and savor local chef creation.",
+      description:
+        "Too busy to cook or miss freshly cooked meals? You can find food prepared the way you want by local certified chefs with our app. Browse menu of chefs around you or have a chat with chefs to request custom order You can view Chefs availability to help you plan your order Place order with peace of mind as payment is released only after order is delivered. Not available in your city? We’re working on it.",
+      challenge:
+        "One of the main challenges we faced was creating a seamless user experience that simplifies the process of discovering and ordering food. We worked hard to ensure that the app's interface is user friendly, allowing them to easily navigate through different menus and explore dishes from various chefs. Additionally, we focused on implementing reliable and secure features such as instant chat with chefs to provide users with essential information about the food and maintain a trustworthy environment.",
+      goal: "The goal of Chefnero is to simplify the process of discovering and ordering food from local chefs. By providing a user-friendly platform, we aim to connect food enthusiasts with talented chefs in their neighborhood and enable them to conveniently access and enjoy a wide variety of delicious meals. Our objective is to bring together consumers and local culinary talent, creating a lively community that celebrates diverse flavors and food experiences.",
+      audience:
+        "Chefnero caters to food lovers of all ages who seek convenience and variety in their dining experiences. Whether you're a busy professional, a student, or simply someone who appreciates good food, Chefnero is designed to meet your craving needs. The app is made for everyone, no matter your age or what kind of food you love. It's all about making dining easy and enjoyable for everyone who wants quality and convenience.",
+      videoUrl: "/videos/chefnero.mp4",
+      images: [
+        require("../lib/projectAssets/Chefnero/display-2.webp"),
+        require("../lib/projectAssets/Chefnero/display.png"),
+      ],
+    },
+    {
+      id: "8",
+      title: "Pidj",
+      image: require("../lib/projectAssets/Pidj/display.png"),
+      category: "Web Development & Mobile App Development",
+      client: "Communication Company",
+      date: "2023",
+      technologies: ["React.js", "React Native", "Php", "SQL", "Tailwind CSS"],
+      shortDescription:
+        "Boost Your Business and Community Communication with Pidj Mobile.",
+      description:
+        "Efficiently manage your business and community communications with the Pid text messaging app. With 2-way communication and Textcast capabilities, you can easily stay connected with your team, customers, or community in real-time. Never miss a message and streamline your workflow with our user-friendly interface. Download now and take your business to the next level",
+      challenge:
+        "Our main challenge lies in differentiating Pidj Mobile in a saturated mobile communication market, where lots of other communication apps are already available. We need to show off Pidj Mobile's special features, especially its Textcast thing, so people will want to use it. Another big challenge is keeping everything safe and private. We know it's really important to make sure people trust us with their info, especially if they're running businesses and dealing with sensitive stuff. Additionally, encouraging user adoption of Pidj Mobile might need some explanation and showing them how much it can help them save time and work better.",
+      goal: "Our primary objective in developing Pidj is to enhance communication efficiency for businesses and communities. We aim to empower them by providing a user-friendly platform that simplifies communication and improves workflow. With Pidj, users can enjoy the benefits of two-way texting and Textcast capabilities, enabling them to connect efficiently with their teams, customers, or community members in real-time.Pidj Mobile aims to bring all your communication in one place and ensure that no messages are missed. By doing so, it encourages collaboration and increases productivity, which is essential for businesses to achieve their goals. It also helps strengthen relationships, enhance customer satisfaction, and promote active engagement within communities. Its user-friendly features make communication easier and more efficient, allowing businesses to thrive and succeed",
+      audience:
+        "Pidj caters to a broad audience in search of efficient communication solutions. t's great for nonprofit groups, schools, and community organizations who need to send out lots of messages, organize events, or keep members engaged. And it's not just for them businesses of any size, from small startups to big companies, can use Pidj too. It helps teams stay in touch, share news, and work together easily. Even customer service teams can use Pidj to talk to customers and fix problems fast.",
+      videoUrl: "/videos/pidj.mp4",
+      images: [
+        require("../lib/projectAssets/Pidj/display.png"),
+        require("../lib/projectAssets/Pidj/mockup.png"),
+      ],
+    },
+    {
+      id: "9",
+      title: "Event Buddy",
+      image: require("../lib/projectAssets/EventBuddy/display.png"),
+      category: "Web Development & Mobile App Development",
+      client: "Communication Company",
+      date: "2023",
+      technologies: ["React.js", "React Native", "Php", "SQL", "Tailwind CSS"],
+      shortDescription:
+        "Boost Your Business and Community Communication with Pidj Mobile.",
+      description:
+        "Efficiently manage your business and community communications with the Pid text messaging app. With 2-way communication and Textcast capabilities, you can easily stay connected with your team, customers, or community in real-time. Never miss a message and streamline your workflow with our user-friendly interface. Download now and take your business to the next level",
+      challenge:
+        "Our main challenge lies in differentiating Pidj Mobile in a saturated mobile communication market, where lots of other communication apps are already available. We need to show off Pidj Mobile's special features, especially its Textcast thing, so people will want to use it. Another big challenge is keeping everything safe and private. We know it's really important to make sure people trust us with their info, especially if they're running businesses and dealing with sensitive stuff. Additionally, encouraging user adoption of Pidj Mobile might need some explanation and showing them how much it can help them save time and work better.",
+      goal: "Our primary objective in developing Pidj is to enhance communication efficiency for businesses and communities. We aim to empower them by providing a user-friendly platform that simplifies communication and improves workflow. With Pidj, users can enjoy the benefits of two-way texting and Textcast capabilities, enabling them to connect efficiently with their teams, customers, or community members in real-time.Pidj Mobile aims to bring all your communication in one place and ensure that no messages are missed. By doing so, it encourages collaboration and increases productivity, which is essential for businesses to achieve their goals. It also helps strengthen relationships, enhance customer satisfaction, and promote active engagement within communities. Its user-friendly features make communication easier and more efficient, allowing businesses to thrive and succeed",
+      audience:
+        "Pidj caters to a broad audience in search of efficient communication solutions. t's great for nonprofit groups, schools, and community organizations who need to send out lots of messages, organize events, or keep members engaged. And it's not just for them businesses of any size, from small startups to big companies, can use Pidj too. It helps teams stay in touch, share news, and work together easily. Even customer service teams can use Pidj to talk to customers and fix problems fast.",
+      videoUrl: "/videos/pidj.mp4",
+      images: [
+        require("../lib/projectAssets/Pidj/display.png"),
+        require("../lib/projectAssets/Pidj/mockup.png"),
+      ],
+    },
+    {
+      id: "10",
+
+      title: "Phonesheet",
+      image: require("../lib/projectAssets/Phonesheet/mockup.png"),
+      category: "Web Development & Mobile App Development",
+      client: "Communication Company",
+      date: "2023",
+      technologies: ["React.js", "React Native", "Php", "SQL", "Tailwind CSS"],
+      shortDescription:
+        "Boost Your Business and Community Communication with Pidj Mobile.",
+      description:
+        "Efficiently manage your business and community communications with the Pid text messaging app. With 2-way communication and Textcast capabilities, you can easily stay connected with your team, customers, or community in real-time. Never miss a message and streamline your workflow with our user-friendly interface. Download now and take your business to the next level",
+      challenge:
+        "Our main challenge lies in differentiating Pidj Mobile in a saturated mobile communication market, where lots of other communication apps are already available. We need to show off Pidj Mobile's special features, especially its Textcast thing, so people will want to use it. Another big challenge is keeping everything safe and private. We know it's really important to make sure people trust us with their info, especially if they're running businesses and dealing with sensitive stuff. Additionally, encouraging user adoption of Pidj Mobile might need some explanation and showing them how much it can help them save time and work better.",
+      goal: "Our primary objective in developing Pidj is to enhance communication efficiency for businesses and communities. We aim to empower them by providing a user-friendly platform that simplifies communication and improves workflow. With Pidj, users can enjoy the benefits of two-way texting and Textcast capabilities, enabling them to connect efficiently with their teams, customers, or community members in real-time.Pidj Mobile aims to bring all your communication in one place and ensure that no messages are missed. By doing so, it encourages collaboration and increases productivity, which is essential for businesses to achieve their goals. It also helps strengthen relationships, enhance customer satisfaction, and promote active engagement within communities. Its user-friendly features make communication easier and more efficient, allowing businesses to thrive and succeed",
+      audience:
+        "Pidj caters to a broad audience in search of efficient communication solutions. t's great for nonprofit groups, schools, and community organizations who need to send out lots of messages, organize events, or keep members engaged. And it's not just for them businesses of any size, from small startups to big companies, can use Pidj too. It helps teams stay in touch, share news, and work together easily. Even customer service teams can use Pidj to talk to customers and fix problems fast.",
+      videoUrl: "/videos/pidj.mp4",
+      images: [
+        require("../lib/projectAssets/Pidj/display.png"),
+        require("../lib/projectAssets/Pidj/mockup.png"),
+      ],
+    },
+    {
+      id: "11",
+      title: "ShowOff",
+      image: require("../lib/projectAssets/ShowOff/display.png"),
+      category: "Web Development & Mobile App Development",
+      client: "Communication Company",
+      date: "2023",
+      technologies: ["React.js", "React Native", "Php", "SQL", "Tailwind CSS"],
+      shortDescription:
+        "Boost Your Business and Community Communication with Pidj Mobile.",
+      description:
+        "Efficiently manage your business and community communications with the Pid text messaging app. With 2-way communication and Textcast capabilities, you can easily stay connected with your team, customers, or community in real-time. Never miss a message and streamline your workflow with our user-friendly interface. Download now and take your business to the next level",
+      challenge:
+        "Our main challenge lies in differentiating Pidj Mobile in a saturated mobile communication market, where lots of other communication apps are already available. We need to show off Pidj Mobile's special features, especially its Textcast thing, so people will want to use it. Another big challenge is keeping everything safe and private. We know it's really important to make sure people trust us with their info, especially if they're running businesses and dealing with sensitive stuff. Additionally, encouraging user adoption of Pidj Mobile might need some explanation and showing them how much it can help them save time and work better.",
+      goal: "Our primary objective in developing Pidj is to enhance communication efficiency for businesses and communities. We aim to empower them by providing a user-friendly platform that simplifies communication and improves workflow. With Pidj, users can enjoy the benefits of two-way texting and Textcast capabilities, enabling them to connect efficiently with their teams, customers, or community members in real-time.Pidj Mobile aims to bring all your communication in one place and ensure that no messages are missed. By doing so, it encourages collaboration and increases productivity, which is essential for businesses to achieve their goals. It also helps strengthen relationships, enhance customer satisfaction, and promote active engagement within communities. Its user-friendly features make communication easier and more efficient, allowing businesses to thrive and succeed",
+      audience:
+        "Pidj caters to a broad audience in search of efficient communication solutions. t's great for nonprofit groups, schools, and community organizations who need to send out lots of messages, organize events, or keep members engaged. And it's not just for them businesses of any size, from small startups to big companies, can use Pidj too. It helps teams stay in touch, share news, and work together easily. Even customer service teams can use Pidj to talk to customers and fix problems fast.",
+      videoUrl: "/videos/pidj.mp4",
+      images: [
+        require("../lib/projectAssets/Pidj/display.png"),
+        require("../lib/projectAssets/Pidj/mockup.png"),
+      ],
+    },
+    {
+      id: "12",
+      title: "Group Homes",
+      image: require("../lib/projectAssets/GroupHomes/display.png"),
+      category: "Web Development & Mobile App Development",
+      client: "Communication Company",
+      date: "2023",
+      technologies: ["React.js", "React Native", "Php", "SQL", "Tailwind CSS"],
+      shortDescription:
+        "Boost Your Business and Community Communication with Pidj Mobile.",
+      description:
+        "Efficiently manage your business and community communications with the Pid text messaging app. With 2-way communication and Textcast capabilities, you can easily stay connected with your team, customers, or community in real-time. Never miss a message and streamline your workflow with our user-friendly interface. Download now and take your business to the next level",
+      challenge:
+        "Our main challenge lies in differentiating Pidj Mobile in a saturated mobile communication market, where lots of other communication apps are already available. We need to show off Pidj Mobile's special features, especially its Textcast thing, so people will want to use it. Another big challenge is keeping everything safe and private. We know it's really important to make sure people trust us with their info, especially if they're running businesses and dealing with sensitive stuff. Additionally, encouraging user adoption of Pidj Mobile might need some explanation and showing them how much it can help them save time and work better.",
+      goal: "Our primary objective in developing Pidj is to enhance communication efficiency for businesses and communities. We aim to empower them by providing a user-friendly platform that simplifies communication and improves workflow. With Pidj, users can enjoy the benefits of two-way texting and Textcast capabilities, enabling them to connect efficiently with their teams, customers, or community members in real-time.Pidj Mobile aims to bring all your communication in one place and ensure that no messages are missed. By doing so, it encourages collaboration and increases productivity, which is essential for businesses to achieve their goals. It also helps strengthen relationships, enhance customer satisfaction, and promote active engagement within communities. Its user-friendly features make communication easier and more efficient, allowing businesses to thrive and succeed",
+      audience:
+        "Pidj caters to a broad audience in search of efficient communication solutions. t's great for nonprofit groups, schools, and community organizations who need to send out lots of messages, organize events, or keep members engaged. And it's not just for them businesses of any size, from small startups to big companies, can use Pidj too. It helps teams stay in touch, share news, and work together easily. Even customer service teams can use Pidj to talk to customers and fix problems fast.",
+      videoUrl: "/videos/pidj.mp4",
+      images: [
+        require("../lib/projectAssets/Pidj/display.png"),
+        require("../lib/projectAssets/Pidj/mockup.png"),
+      ],
     },
   ];
 
@@ -81,7 +319,7 @@ export default function Home() {
     },
   ];
 
-  const premiumTools = [
+  const technologyStack = [
     {
       id: "1",
       name: "HTML",
@@ -108,10 +346,6 @@ export default function Home() {
   ];
 
   const navOptions = [
-    // {
-    //   title: "Home",
-    //   navigateTo: "/",
-    // },
     {
       title: "Projects",
       navigateTo: "/projects",
@@ -135,12 +369,6 @@ export default function Home() {
       icon: require("../lib/icons/github.webp"),
       link: "https://github.com/abdulRafay2003",
     },
-    // {
-    //   id: "3",
-    //   title: "Email",
-    //   icon: require("../lib/icons/github.webp"),
-    //   link: "mailto:abdurafay119@gmail.com?subject=Let's%20Connect&body=Hello%2C%20I%20wanted%20to%20discuss%20something%20with%20you.",
-    // },
   ];
 
   return (
@@ -265,9 +493,14 @@ export default function Home() {
                 <span className="text-zinc-800">PROJECTS</span>
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {projects.map((project, index) => (
+                {projects?.slice(0, 6)?.map((project, index) => (
                   <Link
-                    href="/details"
+                    href={{
+                      pathname: "/details",
+                      query: {
+                        data: encodeURIComponent(JSON.stringify(project)),
+                      },
+                    }}
                     className="text-gray-400 hover:text-white transition-colors inline-flex items-center"
                   >
                     <Card
@@ -335,7 +568,7 @@ export default function Home() {
                 <span className="text-zinc-800">STACK</span>
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
-                {premiumTools.map((tool, index) => (
+                {technologyStack.map((tool, index) => (
                   <Card
                     key={index}
                     className="bg-zinc-900 text-white p-3 flex items-center gap-4  hover:bg-white transition-all hover:text-black"
