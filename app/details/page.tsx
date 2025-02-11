@@ -15,7 +15,7 @@ export default function Detail() {
   // console.log("projectDetails===>>>", projectDetails);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#151312]">
       {/* Hero Section with Video */}
       <div>
         {projectDetails.videoUrl?.length > 0 ? (
@@ -114,7 +114,7 @@ export default function Detail() {
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none mb-9 mt-10">
               PROJECT
               <br />
-              <span className="text-zinc-800">GALLERY</span>
+              <span className="text-zinc-600">GALLERY</span>
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

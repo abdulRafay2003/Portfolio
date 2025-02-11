@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-black text-white p-8">
+    <div className="min-h-screen bg-[#151312] text-white p-8">
       <div className="max-w-6xl mx-auto">
         <Link
           href="/"
@@ -20,7 +20,7 @@ export default function About() {
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[120px] font-bold leading-tight mb-8">
             ABOUT
             <br />
-            <span className="text-zinc-800">ME</span>
+            <span className="text-zinc-600">ME</span>
           </h1>
 
           <div className="prose prose-invert max-w-none">

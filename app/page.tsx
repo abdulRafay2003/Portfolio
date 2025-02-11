@@ -1,5 +1,4 @@
 "use client";
-
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -398,14 +397,14 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-black mb-2">
                 Abdul Rafay
               </h2>
-              <p className="text-sm text-gray-600 mb-4 mt-5">
+              <p className="text-sm text-gray-800 mb-4 mt-5">
                 A Software Engineer who has developed countless innovative
                 solutions.
               </p>
               <h2 className="text-1xl font-bold mb-2 text-black">
                 Personal Info
               </h2>
-              <ul className="text-gray-600 text-sm space-y-2 mb-6">
+              <ul className="text-gray-800 text-sm space-y-2 mb-6">
                 <li>Contact : +923363766006</li>
                 <li>Email : abdurafay119@gmail.com</li>
               </ul>
@@ -455,7 +454,7 @@ export default function Home() {
             <h1 className="text-[120px] font-bold leading-none mb-4">
               SOFTWARE
               <br />
-              <span className="text-zinc-800">ENGINEER</span>
+              <span className="text-zinc-600">ENGINEER</span>
             </h1>
             <p className="text-gray-400 mb-8 md:max-w-[650px]">
               Specializes in mobile application development, crafting
@@ -481,7 +480,7 @@ export default function Home() {
               <h2 className="text-[80px] font-bold leading-none mb-9 mt-24">
                 RECENT
                 <br />
-                <span className="text-zinc-800">PROJECTS</span>
+                <span className="text-zinc-600">PROJECTS</span>
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {projects?.slice(0, 6)?.map((project, index) => (
@@ -536,7 +535,7 @@ export default function Home() {
               <h2 className="text-[80px] font-bold leading-none mb-9 mt-24">
                 4 YEARS OF
                 <br />
-                <span className="text-zinc-800">EXPERIENCE</span>
+                <span className="text-zinc-600">EXPERIENCE</span>
               </h2>
               <div className="space-y-6">
                 {experiences.map((exp, index) => (
@@ -560,7 +559,7 @@ export default function Home() {
               <h2 className="text-[80px] font-bold leading-none mb-9 mt-24">
                 TECHNOLOGY
                 <br />
-                <span className="text-zinc-800">STACK</span>
+                <span className="text-zinc-600">STACK</span>
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
                 {technologyStack.map((tool, index) => (
@@ -596,7 +595,7 @@ export default function Home() {
               <h2 className="text-[80px] font-bold leading-none mb-9 mt-24">
                 LET'S WORK
                 <br />
-                <span className="text-zinc-800">TOGETHER</span>
+                <span className="text-zinc-600">TOGETHER</span>
               </h2>
 
               <Button

@@ -7,7 +7,7 @@ import { projects } from "../page";
 
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-black text-white p-8">
+    <div className="min-h-screen bg-[#151312] text-white p-8">
       <div className="max-w-6xl mx-auto">
         <Link
           href="/"
@@ -35,7 +35,7 @@ export default function Projects() {
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-[70px] font-bold leading-none mb-9 mt-10">
             PROJECTS
             <br />
-            <span className="text-zinc-800">COMPLETED</span>
+            <span className="text-zinc-600">COMPLETED</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-[70px]">
