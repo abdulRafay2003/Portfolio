@@ -17,7 +17,7 @@ export default function About() {
         </Link>
 
         <Card className="bg-zinc-900 p-8">
-          <h1 className="text-[120px] font-bold leading-tight mb-8">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[120px] font-bold leading-tight mb-8">
             ABOUT
             <br />
             <span className="text-zinc-800">ME</span>
