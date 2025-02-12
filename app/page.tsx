@@ -7,7 +7,7 @@ import StackIcon from "tech-stack-icons";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-export const projects = [
+const projects = [
   {
     id: "1",
     title: "Chefnero",
