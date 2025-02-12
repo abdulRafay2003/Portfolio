@@ -159,7 +159,8 @@ const projects = [
     category: "Mobile App Development",
     date: "2021",
     technologies: ["React Native", "Javascript", "Node.js", "SQL", "AWS"],
-    shortDescription: "The Future of Equine Health Management",
+    shortDescription:
+      "Prox Equine is a mobile equine health platform for horse owners. It includes Animal Dashboard, Digital Medical Record, Vet Video Chat",
     description:
       "Prox Equine is a mobile equine health platform for horse owners. It includes Animal Dashboard, Digital Medical Record, Vet Video Chat, Breeding Records, Away Care Program, Set Up Vet Appointments, and Reminders for Medications/Treatments/Vaccinations. Prox Equine and Prox Vet Sync together, so when a Vet updates their record, it updates the animal’s record in the owner's application",
     challenge:
@@ -181,7 +182,8 @@ const projects = [
     category: "Mobile App Development",
     date: "2021",
     technologies: ["React Native", "Javascript", "Node.js", "SQL", "AWS"],
-    shortDescription: "Easy Communication Between Client and Vet",
+    shortDescription:
+      "Prox Vet is a mobile platform that allows for easy communication between Client and Vet, Creates a Digital Medical Record of the Horse,",
     description:
       "Built for Today’s Mobile Equine Veterinarian. Prox Vet is a mobile platform that allows for easy communication between Client and Vet, Creates a Digital Medical Record of the Horse, Provides Two-Way Emergency Vet Video Chat, and allows for Customized Invoicing and Payment Capture. Additionally, Client Appointments are set up through Prox Equine, and the Digital Medical Record syncs to the client’s application. Get Prox Vet Today to transform your Mobile Practice",
     challenge:
@@ -278,9 +280,9 @@ const projects = [
       "AWS",
     ],
     shortDescription:
-      "Chefnero the ultimate food discovery app, allows you to discover and savor local chef creation.",
+      "Speak English Fluently with Fluospeak, the ultimate English learning app",
     description:
-      "Too busy to cook or miss freshly cooked meals? You can find food prepared the way you want by local certified chefs with our app. Browse menu of chefs around you or have a chat with chefs to request custom order You can view Chefs availability to help you plan your order Place order with peace of mind as payment is released only after order is delivered. Not available in your city? We’re working on it.",
+      "Learn to communicate with native speakers. Learn english with Fluospeak, the ultimate English learning app. Fluospeak is a language learning app that helps you improve your English speaking skills by connecting you with native speakers. Practice speaking English with real people, get instant feedback, and improve your pronunciation, vocabulary, and fluency. Whether you're a beginner or an advanced learner, Fluospeak offers personalized lessons and interactive exercises to help you speak English confidently and fluently.",
     videoUrl: "",
     images: [
       require("../../lib/projectAssets/Fluospeak/mockup.png"),

@@ -6,6 +6,23 @@ import Image from "next/image";
 import StackIcon from "tech-stack-icons";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+// Animation Variants
+const fadeIn = {
+  hidden: { opacity: 0, y: -90 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
+
+const slideIn = {
+  hidden: { x: 50, opacity: 0 },
+  visible: { x: 0, opacity: 1, transition: { duration: 0.8 } },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 1 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.3 } },
+};
 
 const projects = [
   {
@@ -155,141 +172,6 @@ const projects = [
       require("../lib/projectAssets/Tapped-N/ss-3.jpg"),
     ],
   },
-  {
-    id: "10",
-    title: "Prox Equine",
-    image: require("../lib/projectAssets/ProxEquine/ss-1.jpg"),
-    category: "Mobile App Development",
-    date: "2021",
-    technologies: ["React Native", "Javascript", "Node.js", "SQL", "AWS"],
-    shortDescription: "The Future of Equine Health Management",
-    description:
-      "Prox Equine is a mobile equine health platform for horse owners. It includes Animal Dashboard, Digital Medical Record, Vet Video Chat, Breeding Records, Away Care Program, Set Up Vet Appointments, and Reminders for Medications/Treatments/Vaccinations. Prox Equine and Prox Vet Sync together, so when a Vet updates their record, it updates the animal’s record in the owner's application",
-    challenge:
-      "The main challenges for Prox Equine include developing accurate health monitoring using AI, incorporating Prox Vet for smooth record updates and vet communication, addressing various horse care needs, ensuring data security and privacy, managing subscription based revenue, and continuously improving the app to meet user needs and stay updated with competitors.",
-    goal: "Prox Equine is a mobile platform designed for horse owners to manage their equine health effectively. The app offers a range of features including the Animal Dashboard, Digital Medical Record, Vet Video Chat, Breeding Records, Away Care Program, Set Up Vet Appointments, and Reminders for Medications, Treatments, and Vaccinations. The integration of Prox Equine with Prox Vet ensures that any updates made by the vet will automatically updates with the animals record in the owner's application.",
-    audience:
-      "Prox Equine is designed for horse owners who prioritize their horses' health. This includes professional trainers, breeders, and enthusiasts who want data-driven understandings and modified recommendations for their horses nutrition, wellness, and performance. The app caters to those seeking a comprehensive mobile solution for equine health management, including features like AI-powered health monitoring, vet video chat, and reminders for critical care tasks.",
-    videoUrl: "/videos/proxequine.mp4",
-    images: [
-      require("../lib/projectAssets/ProxEquine/ss-1.jpg"),
-      require("../lib/projectAssets/ProxEquine/ss-2.jpg"),
-      require("../lib/projectAssets/ProxEquine/ss-3.jpg"),
-    ],
-  },
-  {
-    id: "11",
-    title: "Prox Vet",
-    image: require("../lib/projectAssets/ProxVet/ss-1.png"),
-    category: "Mobile App Development",
-    date: "2021",
-    technologies: ["React Native", "Javascript", "Node.js", "SQL", "AWS"],
-    shortDescription: "Easy Communication Between Client and Vet",
-    description:
-      "Built for Today’s Mobile Equine Veterinarian. Prox Vet is a mobile platform that allows for easy communication between Client and Vet, Creates a Digital Medical Record of the Horse, Provides Two-Way Emergency Vet Video Chat, and allows for Customized Invoicing and Payment Capture. Additionally, Client Appointments are set up through Prox Equine, and the Digital Medical Record syncs to the client’s application. Get Prox Vet Today to transform your Mobile Practice",
-    challenge:
-      "Making Prox Vet means facing a few challenges. One big challenge is making an app that is easy for both vets and clients to use. We also need to make sure it works well with other systems, keeps data safe, and fits with different vet workflows. It is important to keep improving the app based on what users need, manage how we make money from subscriptions, and make sure the app runs smoothly. To overcome these challenges, we need a talented team, lots of testing, and always listening to what users want.",
-    goal: "The goal of the Prox Vet app is to create a mobile platform specifically for equine veterinarians. It is designed to make communication between vets and their clients smoother. The app will keep digital medical records of horses, allow emergency video chats with vets, and make billing and payments easier. By making vet practice mobile-friendly, Prox Vet plans to improve equine care quality, make vets more productive, and strengthen the bond between vets and clients. The app will focus on making it easy to use, keeping data secure, and being able to grow as more people use it.",
-    audience:
-      "Prox Vet is for equine veterinarians and their clients. It is made for vets who want to modernize their practice, communicate better with clients, and work more efficiently. Clients who want to easily access their horse's medical records, talk to a vet in an emergency, and handle payments smoothly will find it helpful too. The app is for vets and clients who want new ways to improve equine care. By focusing on this group, Prox Vet can meet the special needs of equine vets and their clients.",
-    videoUrl: "/videos/proxvet.mp4",
-    images: [
-      require("../lib/projectAssets/ProxVet/ss-1.png"),
-      require("../lib/projectAssets/ProxVet/ss-2.png"),
-      require("../lib/projectAssets/ProxVet/ss-3.png"),
-    ],
-  },
-  {
-    id: "5",
-    title: "ShowOff",
-    image: require("../lib/projectAssets/ShowOff/display.png"),
-    category: "Web Development & Mobile App Development",
-    date: "2023",
-    technologies: [
-      "HTML",
-      "CSS",
-      "React.js",
-      "Javascript",
-      "Typescript",
-      "React Native",
-      "Node.js",
-      "Mongodb",
-      "AWS",
-    ],
-    shortDescription:
-      "Show off your premium cars in style and attract the right audience with a stunning posts",
-    description:
-      "The aim of the solution is to provide a platform which offers a powerful social mobile application to show off your premium cars and get nominated for “King of the road” title.",
-    videoUrl: "/videos/showoff.mp4",
-    images: [
-      require("../lib/projectAssets/ShowOff/ss-1.png"),
-      require("../lib/projectAssets/ShowOff/ss-2.png"),
-      require("../lib/projectAssets/ShowOff/ss-3.png"),
-      require("../lib/projectAssets/ShowOff/ss-4.png"),
-      require("../lib/projectAssets/ShowOff/ss-5.png"),
-      require("../lib/projectAssets/ShowOff/ss-6.png"),
-    ],
-  },
-  {
-    id: "4",
-    title: "Phonesheet",
-    image: require("../lib/projectAssets/Phonesheet/mockup.png"),
-    category: "Web Development & Mobile App Development",
-    technologies: [
-      "Next.js",
-      "Javascript",
-      "React Native",
-      "Nest.js",
-      "Mongodb",
-      "AWS",
-    ],
-    shortDescription:
-      "Enhance and simplify your call logging experience with PhoneSheet.",
-    description:
-      "PhoneSheet is a website and application designed to manage your incoming and outgoing call log. It can be used to manage various incoming/outgoing calls while also keeping track of phone numbers. Additionally, a user can log in any notes they may have relating to why they need to call or why they are being called. This is an excellent tool for busy work professionals who need to keep track of their communications.",
-    videoUrl: "/videos/phonesheet.mp4",
-    images: [require("../lib/projectAssets/Phonesheet/mockup.png")],
-  },
-  {
-    id: "3",
-    title: "Event Buddy",
-    image: require("../lib/projectAssets/EventBuddy/display.png"),
-    category: "Mobile App Development",
-    technologies: ["Javascript", "React Native", "Node.js", "Mongodb"],
-    shortDescription:
-      "The Event Buddy is a social network platform that helps you to invite people to join events based on location",
-    description:
-      "The Event Buddy is a social network platform that helps you to invite people to join events based on location",
-    videoUrl: "",
-    images: [
-      require("../lib/projectAssets/EventBuddy/display.png"),
-      require("../lib/projectAssets/EventBuddy/mockup.png"),
-    ],
-  },
-  {
-    id: "7",
-    title: "Fluospeak",
-    image: require("../lib/projectAssets/Fluospeak/display.png"),
-    category: "Web & Mobile App Development",
-    date: "2023",
-    technologies: [
-      "React.js",
-      "Javascript",
-      "Node.js",
-      "React Native",
-      "Mongodb",
-      "AWS",
-    ],
-    shortDescription:
-      "Chefnero the ultimate food discovery app, allows you to discover and savor local chef creation.",
-    description:
-      "Too busy to cook or miss freshly cooked meals? You can find food prepared the way you want by local certified chefs with our app. Browse menu of chefs around you or have a chat with chefs to request custom order You can view Chefs availability to help you plan your order Place order with peace of mind as payment is released only after order is delivered. Not available in your city? We’re working on it.",
-    videoUrl: "",
-    images: [
-      require("../lib/projectAssets/Fluospeak/mockup.png"),
-      require("../lib/projectAssets/Fluospeak/display.png"),
-    ],
-  },
 ];
 
 export default function Home() {
@@ -374,259 +256,312 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#151312] text-white p-8 pt-4">
-      <div className="max-w-6xl mx-auto">
-        {/* Navigation */}
+    <motion.div
+      className="min-h-screen bg-[#151312] text-white py-8 pt-4"
+      initial="hidden"
+      animate="visible"
+      variants={staggerContainer}
+    >
+      <div className="min-h-screen bg-[#151312] text-white p-8 pt-4">
+        <div className="max-w-6xl mx-auto">
+          {/* Navigation */}
 
-        <nav className="flex justify-center mb-[70px] space-x-4"></nav>
+          <nav className="flex justify-center mb-[70px] space-x-4"></nav>
 
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row gap-24 mb-10 relative">
-          {/* Profile Card - Now Sticky */}
-          <div className="md:sticky md:top-8 md:h-fit flex justify-center">
-            <Card className="rounded-2xl p-5 w-full max-w-[500px] sm:max-w-[400px] md:max-w-xs bg-white items-center justify-center text-center shadow-lg">
-              {/* Profile Image */}
-              <div className="relative w-full sm:w-full md:w-full aspect-square mb-4 rounded-lg overflow-hidden">
-                <Image
-                  src={require("../lib/profile.png")}
-                  alt="Profile"
-                  layout="responsive"
-                  objectFit="cover"
-                  className="rounded-lg"
-                />
-              </div>
-
-              {/* Name */}
-              <h2 className="text-2xl sm:text-3xl font-bold text-black mb-2">
-                Abdul Rafay
-              </h2>
-
-              {/* Description */}
-              <p className="text-sm sm:text-base text-gray-800 mb-4 mt-3">
-                A Software Engineer who has developed countless innovative
-                solutions.
-              </p>
-
-              {/* Personal Info */}
-              <h2 className="text-lg font-bold mb-2 text-black">
-                Personal Info
-              </h2>
-              <ul className="text-gray-800 text-sm sm:text-base space-y-2 mb-6">
-                <li>
-                  <span className="font-semibold">Contact:</span> +923363766006
-                </li>
-                <li>
-                  <span className="font-semibold">Email:</span>{" "}
-                  abdurafay119@gmail.com
-                </li>
-              </ul>
-
-              {/* Social Icons */}
-              <div className="flex gap-3 items-center justify-center flex-wrap">
-                {socialIcons?.map((social) =>
-                  social?.id == "3" ? (
-                    <a key={social.title} href="mailto:abdurafay119@gmail.com">
-                      <Button size="icon" className="rounded-full">
-                        <Image
-                          src={social?.icon}
-                          alt={social.title}
-                          // width={24}
-                          // height={24}
-                          className="rounded-full"
-                        />
-                      </Button>
-                    </a>
-                  ) : (
-                    <Link key={social.title} href={social?.link}>
-                      <Button size="icon" className="rounded-full">
-                        <Image
-                          src={social?.icon}
-                          alt={social.title}
-                          // width={24}
-                          // height={24}
-                          className="rounded-full"
-                        />
-                      </Button>
-                    </Link>
-                  )
-                )}
-              </div>
-            </Card>
-          </div>
-
-          {/* Main Content */}
-          <div className="flex-[2] md:max-w-l">
-            <h1 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] xl:text-[120px] font-bold leading-none mb-4">
-              SOFTWARE
-              <br />
-              <span className="text-zinc-600">ENGINEER</span>
-            </h1>
-
-            <p className="text-gray-400 mb-8 md:max-w-[650px]">
-              Specializes in mobile application development, crafting
-              high-performance, scalable, and user-friendly apps. With extensive
-              experience in React Native and modern technologies, we bring ideas
-              to life with seamless, innovative, and impactful mobile solutions
-            </p>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8 max-w-full md:max-w-[480px] text-center">
-              {stats.map((stat, index) => (
-                <div key={index} className="space-y-1 sm:space-y-2">
-                  <div className="text-[40px] sm:text-[50px] md:text-[70px] font-bold">
-                    {stat.number}
-                  </div>
-                  <div className="text-[14px] sm:text-[16px] text-gray-400 whitespace-pre-line">
-                    {stat.label}
-                  </div>
+          {/* Header Section */}
+          <div className="flex flex-col md:flex-row gap-24 mb-10 relative">
+            {/* Profile Card - Now Sticky */}
+            <motion.div
+              variants={fadeIn}
+              className="md:sticky md:top-8 md:h-fit flex justify-center"
+            >
+              <Card className="rounded-2xl p-5 w-full max-w-[500px] sm:max-w-[400px] md:max-w-xs bg-white items-center justify-center text-center shadow-lg">
+                {/* Profile Image */}
+                <div className="relative w-full sm:w-full md:w-full aspect-square mb-4 rounded-lg overflow-hidden">
+                  <Image
+                    src={require("../lib/profile.png")}
+                    alt="Profile"
+                    layout="responsive"
+                    objectFit="cover"
+                    className="rounded-lg"
+                  />
                 </div>
-              ))}
-            </div>
 
-            {/* Recent Projects */}
-            <section className="mb-20">
-              <h2 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] font-bold leading-none mb-9 mt-24">
-                RECENT
-                <br />
-                <span className="text-zinc-600">PROJECTS</span>
-              </h2>
+                {/* Name */}
+                <h2 className="text-2xl sm:text-3xl font-bold text-black mb-2">
+                  Abdul Rafay
+                </h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {projects?.slice(0, 6)?.map((project, index) => (
-                  <Link
-                    href={{
-                      pathname: "/details",
-                      query: {
-                        data: encodeURIComponent(JSON.stringify(project)),
-                      },
-                    }}
-                    className="text-gray-400 hover:text-white transition-colors inline-flex items-center"
-                  >
+                {/* Description */}
+                <p className="text-sm sm:text-base text-gray-800 mt-3">
+                  A Software Engineer who has developed countless innovative
+                  solutions.
+                </p>
+
+                {/* Personal Info */}
+                <h2 className="text-lg font-bold mb-2 text-black">
+                  Personal Info
+                </h2>
+                <ul className="text-gray-800 text-sm sm:text-base space-y-2 mb-6">
+                  <li>
+                    <span className="font-semibold">Contact:</span>{" "}
+                    +923363766006
+                  </li>
+                  <li>
+                    <span className="font-semibold">Email:</span>{" "}
+                    abdurafay119@gmail.com
+                  </li>
+                </ul>
+
+                {/* Social Icons */}
+                <div className="flex gap-3 items-center justify-center flex-wrap">
+                  {socialIcons?.map((social) =>
+                    social?.id == "3" ? (
+                      <a
+                        key={social.title}
+                        href="mailto:abdurafay119@gmail.com"
+                      >
+                        <Button size="icon" className="rounded-full">
+                          <Image
+                            src={social?.icon}
+                            alt={social.title}
+                            className="rounded-full"
+                          />
+                        </Button>
+                      </a>
+                    ) : (
+                      <Link key={social.title} href={social?.link}>
+                        <Button size="icon" className="rounded-full">
+                          <Image
+                            src={social?.icon}
+                            alt={social.title}
+                            // width={24}
+                            // height={24}
+                            className="rounded-full"
+                          />
+                        </Button>
+                      </Link>
+                    )
+                  )}
+                </div>
+              </Card>
+            </motion.div>
+
+            {/* Main Content */}
+            <div className="flex-[2] md:max-w-l">
+              <motion.h1
+                variants={slideIn}
+                className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] xl:text-[120px] font-bold leading-none mb-4"
+              >
+                SOFTWARE <br />
+                <span className="text-zinc-600">ENGINEER</span>
+              </motion.h1>
+
+              <motion.p
+                variants={slideIn}
+                className="text-gray-400 mb-8 md:max-w-[650px]"
+              >
+                Specializes in mobile application development, crafting
+                high-performance, scalable, and user-friendly apps. With
+                extensive experience in React Native and modern technologies, we
+                bring ideas to life with seamless, innovative, and impactful
+                mobile solutions
+              </motion.p>
+
+              {/* Stats */}
+              <motion.div
+                variants={slideIn}
+                className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8 max-w-full md:max-w-[480px] text-center"
+              >
+                {stats.map((stat, index) => (
+                  <div key={index} className="space-y-1 sm:space-y-2">
+                    <div className="text-[40px] sm:text-[50px] md:text-[70px] font-bold">
+                      {stat.number}
+                    </div>
+                    <div className="text-[14px] sm:text-[16px] text-gray-400 whitespace-pre-line">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+
+              {/* Experience */}
+              <motion.section
+                variants={slideIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }} // Adjust viewport trigger
+                className="mb-20"
+              >
+                <motion.h2
+                  variants={slideIn}
+                  className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] font-bold leading-none mb-9 mt-24"
+                >
+                  4 YEARS OF
+                  <br />
+                  <span className="text-zinc-600">EXPERIENCE</span>
+                </motion.h2>
+
+                <div className="space-y-6">
+                  {experiences.map((exp, index) => (
+                    <motion.div
+                      key={index}
+                      variants={slideIn}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, amount: 0.1 }}
+                    >
+                      <Card className="bg-zinc-900 p-6">
+                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 border-b border-gray-700 pb-3">
+                          <h3 className="text-2xl sm:text-3xl font-semibold">
+                            {exp.company}
+                          </h3>
+                          <Badge
+                            variant="default"
+                            className="h-7 rounded-sm mt-2 sm:mt-0"
+                          >
+                            {exp.period}
+                          </Badge>
+                        </div>
+                        <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
+                          {exp.description}
+                        </p>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.section>
+
+              {/* Recent Projects */}
+              <section className="mb-20">
+                <motion.h2
+                  variants={slideIn}
+                  className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] font-bold leading-none mb-9 mt-24"
+                >
+                  RECENT
+                  <br />
+                  <span className="text-zinc-600">PROJECTS</span>
+                </motion.h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {projects?.map((project, index) => (
+                    <Link
+                      href={{
+                        pathname: "/details",
+                        query: {
+                          data: encodeURIComponent(JSON.stringify(project)),
+                        },
+                      }}
+                      className="text-gray-400 hover:text-white transition-colors inline-flex items-center"
+                    >
+                      <Card
+                        key={index}
+                        className="bg-zinc-900 overflow-hidden group cursor-pointer w-full"
+                      >
+                        <div className="relative h-48">
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            layout="fill"
+                            objectFit="cover"
+                          />
+                        </div>
+                        <div className="p-4 text-center">
+                          <h3 className="text-[22px] font-semibold">
+                            {project.title}
+                          </h3>
+                          <p className="text-gray-400 text-[14px] line-clamp-3">
+                            {project.shortDescription}
+                          </p>
+                        </div>
+                      </Card>
+                    </Link>
+                  ))}
+                </div>
+                <Link href="/Listing">
+                  <Button className="w-full h-12 sm:h-14 md:h-12 bg-white text-base sm:text-lg md:text-xl text-black font-medium rounded-lg transition-all duration-300 hover:bg-zinc-200 hover:scale-105 mt-9">
+                    View All
+                  </Button>
+                </Link>
+              </section>
+
+              {/* Development Tools */}
+              <motion.section
+                variants={slideIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }} // Adjust viewport trigger
+                className="mb-20"
+              >
+                <motion.h2
+                  variants={slideIn}
+                  className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] font-bold leading-none mb-9 mt-24"
+                >
+                  TECHNOLOGY
+                  <br />
+                  <span className="text-zinc-600">STACK</span>
+                </motion.h2>
+
+                <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
+                  {technologyStack.map((tool, index) => (
                     <Card
                       key={index}
-                      className="bg-zinc-900 overflow-hidden group cursor-pointer w-full"
+                      className="bg-zinc-900 text-white p-3 flex items-center gap-4 "
                     >
-                      <div className="relative h-48">
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          layout="fill"
-                          objectFit="cover"
-                        />
+                      <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-lg overflow-hidden">
+                        {tool?.id == "6" || tool?.id == "7" ? (
+                          <Image
+                            src={tool.icon}
+                            alt={tool.name}
+                            layout="fill"
+                            objectFit="contain"
+                            className="rounded-lg"
+                          />
+                        ) : (
+                          <StackIcon name={tool.icon} />
+                        )}
                       </div>
-                      <div className="p-4 text-center">
-                        <h3 className="text-[22px] font-semibold">
-                          {project.title}
+
+                      <div>
+                        <h3 className="font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+                          {tool.name}
                         </h3>
-                        <p className="text-gray-400 text-[14px] line-clamp-3">
-                          {project.shortDescription}
-                        </p>
                       </div>
                     </Card>
-                  </Link>
-                ))}
-              </div>
-              <Link href="/Listing">
-                <Button
-                  onSubmit={() => {
-                    alert("jbjnjn");
-                    router.push("./Listing");
-                  }}
-                  className="w-full bg-white  text-black mt-9"
-                >
-                  View All
-                </Button>
-              </Link>
-            </section>
+                  ))}
+                </div>
+              </motion.section>
 
-            {/* Experience */}
-            <section className="mb-20">
-              <h2 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] font-bold leading-none mb-9 mt-24">
-                4 YEARS OF
-                <br />
-                <span className="text-zinc-600">EXPERIENCE</span>
-              </h2>
-
-              <div className="space-y-6">
-                {experiences.map((exp, index) => (
-                  <Card key={index} className="bg-zinc-900 p-6">
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 border-b border-gray-700 pb-3">
-                      <h3 className="text-2xl sm:text-3xl font-semibold">
-                        {exp.company}
-                      </h3>
-                      <Badge
-                        variant="default"
-                        className="h-7 rounded-sm mt-2 sm:mt-0"
-                      >
-                        {exp.period}
-                      </Badge>
-                    </div>
-                    <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
-                      {exp.description}
-                    </p>
-                  </Card>
-                ))}
-              </div>
-            </section>
-
-            {/* Premium Tools */}
-            <section className="mb-20">
-              <h2 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] font-bold leading-none mb-9 mt-24">
-                TECHNOLOGY
-                <br />
-                <span className="text-zinc-600">STACK</span>
-              </h2>
-
-              <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
-                {technologyStack.map((tool, index) => (
-                  <Card
-                    key={index}
-                    className="bg-zinc-900 text-white p-3 flex items-center gap-4  hover:bg-white transition-all hover:text-black"
-                  >
-                    <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-lg overflow-hidden">
-                      {tool?.id == "6" || tool?.id == "7" ? (
-                        <Image
-                          src={tool.icon}
-                          alt={tool.name}
-                          layout="fill"
-                          objectFit="cover"
-                          className="rounded-lg"
-                        />
-                      ) : (
-                        <StackIcon name={tool.icon} />
-                      )}
-                    </div>
-
-                    <div>
-                      <h3 className="font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl hover:text-black">
-                        {tool.name}
-                      </h3>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </section>
-
-            {/* Let's Work Together */}
-            <section className="mb-[240px]">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-bold leading-tight sm:leading-none mb-6 sm:mb-9 mt-12 sm:mt-24">
-                LET'S WORK
-                <br />
-                <span className="text-zinc-600">TOGETHER</span>
-              </h2>
-
-              <Button
-                onClick={() =>
-                  window.open("https://wa.me/923363766006", "_blank")
-                }
-                className="w-full h-12 sm:h-14 md:h-16 bg-white text-base sm:text-lg md:text-xl text-black font-medium rounded-lg transition-all duration-300 hover:bg-zinc-200 hover:scale-105"
+              {/* Let's Work Together */}
+              <motion.section
+                variants={slideIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }} // Adjust viewport trigger
+                className="mb-[50px]"
               >
-                Let's Connect
-              </Button>
-            </section>
+                <motion.h2
+                  variants={slideIn}
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-bold leading-tight sm:leading-none mb-6 sm:mb-9 mt-12 sm:mt-24"
+                >
+                  LET'S WORK
+                  <br />
+                  <span className="text-zinc-600">TOGETHER</span>
+                </motion.h2>
+
+                <Button
+                  onClick={() =>
+                    window.open("https://wa.me/923363766006", "_blank")
+                  }
+                  className="w-full h-12 sm:h-14 md:h-16 bg-white text-base sm:text-lg md:text-xl text-black font-medium rounded-lg transition-all duration-300 hover:bg-zinc-200 hover:scale-105"
+                >
+                  Let's Connect
+                </Button>
+              </motion.section>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
