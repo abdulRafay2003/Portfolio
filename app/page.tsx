@@ -302,7 +302,7 @@ export default function Home() {
 
   const experiences = [
     {
-      company: "Wizard Innovations US",
+      company: "Wizard Innovations U.S",
       period: "Sept 2023 - Present",
       description:
         "Led the development team in creating user-centric mobile and web applications, improving the user experience and increasing user engagement.",
@@ -374,7 +374,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#151312] text-white p-8 pt-16">
+    <div className="min-h-screen bg-[#151312] text-white p-8 pt-4">
       <div className="max-w-6xl mx-auto">
         {/* Navigation */}
 
@@ -383,62 +383,67 @@ export default function Home() {
         {/* Header Section */}
         <div className="flex flex-col md:flex-row gap-24 mb-10 relative">
           {/* Profile Card - Now Sticky */}
-          <div className="md:sticky md:top-8 md:h-fit">
-            <Card className="rounded-2xl p-5 flex-1 w-[500px] md:max-w-xs bg-white items-center justify-center text-center">
-              <div className="relative w-full aspect-square mb-4 rounded-lg overflow-hidden">
+          <div className="md:sticky md:top-8 md:h-fit flex justify-center">
+            <Card className="rounded-2xl p-5 w-full max-w-[500px] sm:max-w-[400px] md:max-w-xs bg-white items-center justify-center text-center shadow-lg">
+              {/* Profile Image */}
+              <div className="relative w-full sm:w-full md:w-full aspect-square mb-4 rounded-lg overflow-hidden">
                 <Image
                   src={require("../lib/profile.png")}
                   alt="Profile"
-                  layout="full"
-                  objectFit="contain"
+                  layout="responsive"
+                  objectFit="cover"
                   className="rounded-lg"
                 />
               </div>
-              <h2 className="text-3xl font-bold text-black mb-2">
+
+              {/* Name */}
+              <h2 className="text-2xl sm:text-3xl font-bold text-black mb-2">
                 Abdul Rafay
               </h2>
-              <p className="text-sm text-gray-800 mb-4 mt-5">
+
+              {/* Description */}
+              <p className="text-sm sm:text-base text-gray-800 mb-4 mt-3">
                 A Software Engineer who has developed countless innovative
                 solutions.
               </p>
-              <h2 className="text-1xl font-bold mb-2 text-black">
+
+              {/* Personal Info */}
+              <h2 className="text-lg font-bold mb-2 text-black">
                 Personal Info
               </h2>
-              <ul className="text-gray-800 text-sm space-y-2 mb-6">
-                <li>Contact : +923363766006</li>
-                <li>Email : abdurafay119@gmail.com</li>
+              <ul className="text-gray-800 text-sm sm:text-base space-y-2 mb-6">
+                <li>
+                  <span className="font-semibold">Contact:</span> +923363766006
+                </li>
+                <li>
+                  <span className="font-semibold">Email:</span>{" "}
+                  abdurafay119@gmail.com
+                </li>
               </ul>
-              <div className="flex gap-3 items-center justify-center">
+
+              {/* Social Icons */}
+              <div className="flex gap-3 items-center justify-center flex-wrap">
                 {socialIcons?.map((social) =>
                   social?.id == "3" ? (
-                    <a href="https://mailto:abdurafay119@gmail.com">
-                      <Button
-                        key={social.title}
-                        size="icon"
-                        className="rounded-full"
-                      >
+                    <a key={social.title} href="mailto:abdurafay119@gmail.com">
+                      <Button size="icon" className="rounded-full">
                         <Image
                           src={social?.icon}
                           alt={social.title}
-                          layout="full"
-                          objectFit="contain"
+                          // width={24}
+                          // height={24}
                           className="rounded-full"
                         />
                       </Button>
                     </a>
                   ) : (
-                    <Link href={social?.link}>
-                      <Button
-                        key={social.title}
-                        // variant="outline"
-                        size="icon"
-                        className="rounded-full"
-                      >
+                    <Link key={social.title} href={social?.link}>
+                      <Button size="icon" className="rounded-full">
                         <Image
                           src={social?.icon}
                           alt={social.title}
-                          layout="full"
-                          objectFit="contain"
+                          // width={24}
+                          // height={24}
                           className="rounded-full"
                         />
                       </Button>
@@ -451,11 +456,12 @@ export default function Home() {
 
           {/* Main Content */}
           <div className="flex-[2] md:max-w-l">
-            <h1 className="text-[120px] font-bold leading-none mb-4">
+            <h1 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] xl:text-[120px] font-bold leading-none mb-4">
               SOFTWARE
               <br />
               <span className="text-zinc-600">ENGINEER</span>
             </h1>
+
             <p className="text-gray-400 mb-8 md:max-w-[650px]">
               Specializes in mobile application development, crafting
               high-performance, scalable, and user-friendly apps. With extensive
@@ -464,11 +470,13 @@ export default function Home() {
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 mb-8 md:max-w-[480px]">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8 max-w-full md:max-w-[480px] text-center">
               {stats.map((stat, index) => (
-                <div key={index} className="space-y-2">
-                  <div className="md:text-[70px] font-bold">{stat.number}</div>
-                  <div className="text-[16px] text-gray-400 whitespace-pre-line">
+                <div key={index} className="space-y-1 sm:space-y-2">
+                  <div className="text-[40px] sm:text-[50px] md:text-[70px] font-bold">
+                    {stat.number}
+                  </div>
+                  <div className="text-[14px] sm:text-[16px] text-gray-400 whitespace-pre-line">
                     {stat.label}
                   </div>
                 </div>
@@ -477,11 +485,12 @@ export default function Home() {
 
             {/* Recent Projects */}
             <section className="mb-20">
-              <h2 className="text-[80px] font-bold leading-none mb-9 mt-24">
+              <h2 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] font-bold leading-none mb-9 mt-24">
                 RECENT
                 <br />
                 <span className="text-zinc-600">PROJECTS</span>
               </h2>
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {projects?.slice(0, 6)?.map((project, index) => (
                   <Link
@@ -532,21 +541,27 @@ export default function Home() {
 
             {/* Experience */}
             <section className="mb-20">
-              <h2 className="text-[80px] font-bold leading-none mb-9 mt-24">
+              <h2 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] font-bold leading-none mb-9 mt-24">
                 4 YEARS OF
                 <br />
                 <span className="text-zinc-600">EXPERIENCE</span>
               </h2>
+
               <div className="space-y-6">
                 {experiences.map((exp, index) => (
                   <Card key={index} className="bg-zinc-900 p-6">
-                    <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-3xl font-semibold">{exp.company}</h3>
-                      <Badge className="h-7 rounded-sm" variant="default">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 border-b border-gray-700 pb-3">
+                      <h3 className="text-2xl sm:text-3xl font-semibold">
+                        {exp.company}
+                      </h3>
+                      <Badge
+                        variant="default"
+                        className="h-7 rounded-sm mt-2 sm:mt-0"
+                      >
                         {exp.period}
                       </Badge>
                     </div>
-                    <p className="text-gray-400 md:max-w-[600px] text-lg">
+                    <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
                       {exp.description}
                     </p>
                   </Card>
@@ -556,18 +571,19 @@ export default function Home() {
 
             {/* Premium Tools */}
             <section className="mb-20">
-              <h2 className="text-[80px] font-bold leading-none mb-9 mt-24">
+              <h2 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] font-bold leading-none mb-9 mt-24">
                 TECHNOLOGY
                 <br />
                 <span className="text-zinc-600">STACK</span>
               </h2>
+
               <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
                 {technologyStack.map((tool, index) => (
                   <Card
                     key={index}
                     className="bg-zinc-900 text-white p-3 flex items-center gap-4  hover:bg-white transition-all hover:text-black"
                   >
-                    <div className="relative w-20 h-20 rounded-lg overflow-hidden">
+                    <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-lg overflow-hidden">
                       {tool?.id == "6" || tool?.id == "7" ? (
                         <Image
                           src={tool.icon}
@@ -580,8 +596,9 @@ export default function Home() {
                         <StackIcon name={tool.icon} />
                       )}
                     </div>
+
                     <div>
-                      <h3 className="font-semibold text-3xl hover:text-black">
+                      <h3 className="font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl hover:text-black">
                         {tool.name}
                       </h3>
                     </div>
@@ -591,8 +608,8 @@ export default function Home() {
             </section>
 
             {/* Let's Work Together */}
-            <section className="mb-20">
-              <h2 className="text-[80px] font-bold leading-none mb-9 mt-24">
+            <section className="mb-[240px]">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-bold leading-tight sm:leading-none mb-6 sm:mb-9 mt-12 sm:mt-24">
                 LET'S WORK
                 <br />
                 <span className="text-zinc-600">TOGETHER</span>
@@ -602,7 +619,7 @@ export default function Home() {
                 onClick={() =>
                   window.open("https://wa.me/923363766006", "_blank")
                 }
-                className="w-full h-12 bg-white text-lg  text-black"
+                className="w-full h-12 sm:h-14 md:h-16 bg-white text-base sm:text-lg md:text-xl text-black font-medium rounded-lg transition-all duration-300 hover:bg-zinc-200 hover:scale-105"
               >
                 Let's Connect
               </Button>
