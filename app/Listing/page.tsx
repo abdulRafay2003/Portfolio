@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { projects } from "../page";
 
-export default function Projects() {
+export default function Listing() {
   return (
     <div className="min-h-screen bg-[#151312] text-white p-8">
       <div className="max-w-6xl mx-auto">

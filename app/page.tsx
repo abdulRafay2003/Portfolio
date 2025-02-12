@@ -350,7 +350,7 @@ export default function Home() {
   const navOptions = [
     {
       title: "Projects",
-      navigateTo: "/projects",
+      navigateTo: "/Listing",
     },
     {
       title: "About",
@@ -517,11 +517,11 @@ export default function Home() {
                   </Link>
                 ))}
               </div>
-              <Link href="/projects">
+              <Link href="/Listing">
                 <Button
                   onSubmit={() => {
                     alert("jbjnjn");
-                    router.push("./projects");
+                    router.push("./Listing");
                   }}
                   className="w-full bg-white  text-black mt-9"
                 >
