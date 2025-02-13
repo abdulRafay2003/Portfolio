@@ -262,11 +262,41 @@ export default function Home() {
       animate="visible"
       variants={staggerContainer}
     >
+      {/* Sticky Download Resume Button */}
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        className="fixed bottom-8 right-8 z-50"
+      >
+        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-black font-semibold rounded-sm py-2 px-4 shadow-lg flex items-center justify-center gap-2 hover:bg-zinc-200 transition-colors"
+          >
+            My Resume
+          </a>
+        </motion.div>
+        <motion.div
+          className="mt-4"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <a
+            className="bg-white text-black font-semibold rounded-sm py-2 px-4 shadow-lg flex items-center justify-center gap-2 hover:bg-zinc-200 transition-colors"
+            href="/about"
+          >
+            About Me
+          </a>
+        </motion.div>
+      </motion.div>
+
       <div className="min-h-screen bg-[#151312] text-white p-8 pt-4">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto ">
           {/* Navigation */}
 
-          <nav className="flex justify-center mb-[70px] space-x-4"></nav>
+          <nav className="flex justify-center mb-[70px] space-x-4 mt-5 "></nav>
 
           {/* Header Section */}
           <div className="flex flex-col md:flex-row gap-24 mb-10 relative">
