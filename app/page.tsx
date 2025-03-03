@@ -309,7 +309,7 @@ export default function Home() {
                 {/* Profile Image */}
                 <div className="relative w-full sm:w-full md:w-full aspect-square mb-4 rounded-lg overflow-hidden">
                   <Image
-                    src={require("../lib/profile.png")}
+                    src={require("../lib/profile-2.png")}
                     alt="Profile"
                     layout="responsive"
                     objectFit="cover"
