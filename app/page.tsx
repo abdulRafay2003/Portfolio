@@ -177,21 +177,21 @@ const projects = [
 export default function Home() {
   const router = useRouter();
   const stats = [
-    { number: "+4", label: "YEARS OF\nEXPERIENCE" },
+    { number: "+5", label: "YEARS OF\nEXPERIENCE" },
     { number: "+20", label: "PROJECTS\nCOMPLETED" },
     { number: "+15", label: "WORLDWIDE\nCLIENTS" },
   ];
 
   const experiences = [
     {
-      company: "Wizard Innovations U.S",
-      period: "Sept 2023 - Present",
+      company: "Digital Gravity",
+      period: "June 2025 - Present",
       description:
         "Led the development team in creating user-centric mobile and web applications, improving the user experience and increasing user engagement.",
     },
     {
-      company: "Ethos Engine AI",
-      period: "June 2024 - Dec 2024",
+      company: "Wizard Innovations U.S",
+      period: "Sept 2023 - June 2025",
       description:
         "Developed and implemented development strategies for new projects. Collaborated closely with development team and product managers.",
     },
@@ -309,7 +309,7 @@ export default function Home() {
                 {/* Profile Image */}
                 <div className="relative w-full sm:w-full md:w-full aspect-square mb-4 rounded-lg overflow-hidden">
                   <Image
-                    src={require("../lib/profile-2.png")}
+                    src={require("../lib/profile.png")}
                     alt="Profile"
                     layout="responsive"
                     objectFit="cover"
@@ -427,7 +427,7 @@ export default function Home() {
                   variants={slideIn}
                   className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] font-bold leading-none mb-9 mt-24"
                 >
-                  4 YEARS OF
+                  5 YEARS OF
                   <br />
                   <span className="text-zinc-600">EXPERIENCE</span>
                 </motion.h2>

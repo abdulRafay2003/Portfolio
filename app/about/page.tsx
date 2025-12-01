@@ -25,7 +25,7 @@ export default function About() {
 
           <div className="prose prose-invert max-w-none">
             <p className="text-gray-400 text-lg mb-6">
-              I am a passionate Software Engineer with over 4 years of
+              I am a passionate Software Engineer with over more than 5 years of
               experience in creating innovative solutions. My expertise spans
               across multiple technologies and frameworks, allowing me to tackle
               complex challenges and deliver exceptional results.
