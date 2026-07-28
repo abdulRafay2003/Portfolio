@@ -1,7 +1,7 @@
 "use client";
 
 import { ElementType, useMemo } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { charReveal, ease, inView } from "@/lib/motion";
 
@@ -128,10 +128,17 @@ export function ScrollHighlightText({
 }
 
 /**
- * Vertical carousel of rotating titles, one visible at a time.
+ * Rotating titles, one visible at a time.
  *
  * The active index is owned by the caller rather than an internal timer, so a
  * page with several of these can drive them from one interval instead of N.
+ *
+ * Deliberately a short drift plus a crossfade rather than a full-height slide:
+ * the container is exactly one line tall, so a ±110% slide leaves the outgoing
+ * and incoming lines each half-clipped inside the mask at the midpoint, which
+ * reads as a rendering glitch. Fading through keeps at most one line legible.
+ * Only the active item is mounted, so the exit direction stays consistent when
+ * the index wraps back to zero.
  */
 export function RotatingText({
   items,
@@ -142,27 +149,37 @@ export function RotatingText({
   className?: string;
   index: number;
 }) {
+  const longest = items.reduce((a, b) => (a.length > b.length ? a : b));
+  const active = items[index % items.length];
+
   return (
-    <span className={cn("relative inline-flex overflow-hidden align-bottom", className)}>
+    <span className={cn("relative inline-flex align-bottom", className)}>
+      {/*
+        The full list is exposed to assistive tech once, statically. The
+        animated layer is decorative — announcing a swap every few seconds
+        would hijack a screen reader mid-sentence.
+      */}
+      <span className="sr-only">{items.join(", ")}</span>
+
       {/* Invisible sizer keeps the layout from jumping between title lengths. */}
       <span className="invisible whitespace-nowrap" aria-hidden>
-        {items.reduce((a, b) => (a.length > b.length ? a : b))}
+        {longest}
       </span>
-      {items.map((item, i) => (
-        <motion.span
-          key={item}
-          aria-hidden={i !== index}
-          className="absolute inset-0 whitespace-nowrap"
-          initial={false}
-          animate={{
-            y: i === index ? "0%" : i < index ? "-110%" : "110%",
-            opacity: i === index ? 1 : 0,
-          }}
-          transition={{ duration: 0.62, ease: ease.out }}
-        >
-          {item}
-        </motion.span>
-      ))}
+
+      <span aria-hidden className="absolute inset-0 overflow-hidden">
+        <AnimatePresence initial={false}>
+          <motion.span
+            key={active}
+            className="absolute inset-0 whitespace-nowrap"
+            initial={{ y: "38%", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
+            exit={{ y: "-38%", opacity: 0 }}
+            transition={{ duration: 0.45, ease: ease.out }}
+          >
+            {active}
+          </motion.span>
+        </AnimatePresence>
+      </span>
     </span>
   );
 }

@@ -42,9 +42,37 @@ export function Hero() {
   const backdropY = useTransform(scrollYProgress, [0, 1], ["0%", "42%"]);
   const portraitY = useTransform(scrollYProgress, [0, 1], ["0%", "-12%"]);
 
+  /**
+   * Advance the rotating title, but only while the page is actually visible.
+   *
+   * Browsers throttle requestAnimationFrame in background tabs while leaving
+   * setInterval running, so an unguarded timer keeps swapping the title with
+   * no frames to animate it — exit transitions stall and stack up. Pausing on
+   * hide also means a backgrounded tab does no work at all.
+   */
   useEffect(() => {
-    const id = setInterval(() => setTitleIndex((i) => (i + 1) % site.titles.length), 2800);
-    return () => clearInterval(id);
+    let id: number | undefined;
+
+    const start = () => {
+      if (id) return;
+      id = window.setInterval(
+        () => setTitleIndex((i) => (i + 1) % site.titles.length),
+        2800,
+      );
+    };
+    const stop = () => {
+      window.clearInterval(id);
+      id = undefined;
+    };
+
+    const onVisibility = () => (document.hidden ? stop() : start());
+
+    onVisibility();
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => {
+      stop();
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
   }, []);
 
   // Rendered client-side only — a server-rendered clock would hydrate stale.
