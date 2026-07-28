@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 8 8 12;
+    --fg: 237 237 242;
+
+    /* Accent ramp, exposed as raw channels so effects can compose alpha. */
+    --iris: 124 107 255;
+    --mint: 61 220 200;
+    --ember: 255 138 91;
+
+    /* Set by the cursor tracker; every mouse-reactive surface reads these. */
+    --pointer-x: 50%;
+    --pointer-y: 50%;
+
+    /* Height of the fixed header — used for scroll-margin on anchor targets. */
+    --header-h: 72px;
+
+    color-scheme: dark;
+  }
+
+  * {
+    @apply border-white/10;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Lenis drives scrolling; native smooth-scroll would fight it. Only fall
+     back to CSS smooth scroll when Lenis is absent (reduced motion, no JS). */
+  html:not(.lenis) {
+    scroll-behavior: smooth;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    @apply bg-void text-chalk font-sans antialiased;
+    font-feature-settings: "ss01", "cv11", "kern";
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: rgb(var(--iris) / 0.32);
+    color: #fff;
+  }
+
+  [id] {
+    scroll-margin-top: calc(var(--header-h) + 1.5rem);
+  }
+
+  /* Keyboard focus only — pointer users never see the ring. */
+  :focus-visible {
+    outline: 2px solid rgb(var(--iris));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #08080c;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #24242e;
+    border-radius: 99px;
+    border: 3px solid #08080c;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a3a48;
+  }
+}
+
+@layer components {
+  /* ---- Surfaces ------------------------------------------------------- */
+
+  /* The single glass recipe used by every elevated panel on the site. */
+  .glass {
+    background:
+      linear-gradient(
+        160deg,
+        rgb(255 255 255 / 0.055) 0%,
+        rgb(255 255 255 / 0.02) 45%,
+        rgb(255 255 255 / 0.008) 100%
+      );
+    border: 1px solid rgb(255 255 255 / 0.08);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+  }
+
+  /* Hairline highlight along the top edge — reads as light catching a bevel. */
+  .glass-edge {
+    position: relative;
+  }
+  .glass-edge::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(255 255 255 / 0.28) 20%,
+      rgb(255 255 255 / 0.28) 80%,
+      transparent
+    );
+    pointer-events: none;
+  }
+
+  /* ---- Text ----------------------------------------------------------- */
+
+  .text-gradient {
+    background: linear-gradient(
+      110deg,
+      #ffffff 0%,
+      #ffffff 38%,
+      rgb(var(--iris) / 1) 62%,
+      rgb(var(--mint) / 1) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-muted-gradient {
+    background: linear-gradient(180deg, #edeef2 0%, #6d6d7d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Small uppercase mono label that prefixes each section. */
+  .eyebrow {
+    @apply font-mono text-[0.6875rem] uppercase tracking-[0.24em] text-ash;
+  }
+
+  /* ---- Effects -------------------------------------------------------- */
+
+  /* Gradient border via two stacked backgrounds; keeps the fill opaque. */
+  .border-gradient {
+    position: relative;
+    background-clip: padding-box;
+  }
+  .border-gradient::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      140deg,
+      rgb(var(--iris) / 0.55),
+      rgb(var(--mint) / 0.35) 45%,
+      transparent 70%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Radial spotlight that follows the pointer within a card. */
+  .spotlight {
+    position: relative;
+    isolation: isolate;
+  }
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      420px circle at var(--pointer-x) var(--pointer-y),
+      rgb(var(--iris) / 0.14),
+      transparent 62%
+    );
+    opacity: 0;
+    transition: opacity 400ms cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+
+  /* Film-grain overlay. An inline SVG turbulence keeps it a zero-request asset. */
+  .grain::after {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Fine grid, faded out toward the edges. Used behind dense sections. */
+  .grid-veil {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.028) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 20%, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 20%, transparent 78%);
+  }
+
+  /* Edge fade for marquees and horizontal rails. */
+  .edge-fade {
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+}
+
+@layer utilities {
+  .will-transform {
+    will-change: transform;
+  }
+
+  /* Promotes an element to its own layer without the paint cost of will-change
+     on a large subtree. Applied to animated background blobs. */
+  .gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Honour the OS setting: strip every non-essential animation, but keep
+   opacity transitions so reveal-on-scroll content still becomes visible. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
